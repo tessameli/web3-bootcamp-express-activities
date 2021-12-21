@@ -62,12 +62,9 @@ router.put('/product/:id', (req,res) => {
 
         let productIndex = products.findIndex((prod) => prod.id === id);
         
-        products[productIndex] = {
-            name: changes.name || products[productIndex].name,
-            price: changes.price || products[productIndex].price,
-            quantity: changes.quantity || products[productIndex].quantity,
-            colors: changes.colors || products[productIndex].colors,
-        }
+        for (let key in body) {
+            products[productIndex][key] = body[key];
+          }
         
         res.status(200).send(`El producto con id '${id}' ha sido modificado con éxito!`);
     }

@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 
 //routes
-const productsRoute = require('./routes/products');
+const productsRoute = require('./api/products');
 
 // app.get('/', (req, res) => {
 //     res.send("Hello world!");
